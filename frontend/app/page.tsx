@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
   const [isDragging, setIsDragging] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [recordedVideo, setRecordedVideo] = useState<string | null>(null);
@@ -56,6 +58,8 @@ export default function Home() {
     const url = URL.createObjectURL(file);
     setUploadedVideo(url);
     setRecordedVideo(null);
+    localStorage.setItem('uploadedVideo', url);
+    localStorage.removeItem('recordedVideo');
   };
 
   const startRecording = async () => {
@@ -92,6 +96,8 @@ export default function Home() {
         const url = URL.createObjectURL(blob);
         setRecordedVideo(url);
         setUploadedVideo(null);
+        localStorage.setItem('recordedVideo', url);
+        localStorage.removeItem('uploadedVideo');
         
         if (streamRef.current) {
           streamRef.current.getTracks().forEach(track => track.stop());
@@ -131,6 +137,8 @@ export default function Home() {
     setRecordedVideo(null);
     setContext('');
     setAudience('');
+    localStorage.removeItem('recordedVideo');
+    localStorage.removeItem('uploadedVideo');
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -142,6 +150,8 @@ export default function Home() {
       context,
       audience,
     });
+    // Navigate to analysis page
+    router.push('/analysis');
   };
 
   const currentVideo = uploadedVideo || recordedVideo;
