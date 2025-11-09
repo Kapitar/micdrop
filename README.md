@@ -1,12 +1,12 @@
-# Speech Coach
+# MicDrop
 
-Speech Coach is an AI-powered application that provides comprehensive analysis and feedback on speech performance. Users can upload or record videos of themselves speaking, receive detailed feedback across multiple dimensions, and interact with an AI coach to improve their presentation skills.
+MicDrop is an AI-powered application that provides comprehensive analysis and feedback on speech performance. Users can upload or record videos of themselves speaking, receive detailed feedback across multiple dimensions, and interact with an AI coach to improve their presentation skills.
 
 This project was submitted to AI ATL.
 
 ## Overview
 
-Speech Coach analyzes video recordings to provide structured feedback on three main categories:
+MicDrop analyzes video recordings to provide structured feedback on three main categories:
 
 - **Non-Verbal Communication**: Eye contact, gestures, and posture
 - **Delivery**: Clarity and enunciation, intonation, and eloquence (including filler word analysis)
@@ -222,7 +222,7 @@ npm run lint
 
 ## License
 
-Proprietary - Internal use for the Speech Coach project unless stated otherwise.
+Proprietary - Internal use for the MicDrop project unless stated otherwise.
 
 ## Submission
 
